@@ -105,8 +105,14 @@ export default class TestService {
 
   private getProcessOptions(opt: TestRuleOptions, tempFilePath: string): string[] {
     let processOptions: string[] = [];
-
-    processOptions.push('-m', 'elastalert.test_rule', '--config', 'config-test.yaml', tempFilePath, '--days', opt.days.toString());
+    
+    if (opt.start && opt.end){
+      processOptions.push('-m', 'elastalert.test_rule', '--config', 'config-test.yaml', tempFilePath, '--start', opt.start.toString(), '--end', opt.end.toString() );
+    }else{
+      if(opt.days){
+        processOptions.push('-m', 'elastalert.test_rule', '--config', 'config-test.yaml', tempFilePath, '--days', opt.days.toString());
+      }
+    }
 
     if (opt.format === 'json') {
       processOptions.push('--formatted-output');

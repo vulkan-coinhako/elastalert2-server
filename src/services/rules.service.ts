@@ -37,6 +37,7 @@ export default class RulesService {
       if (normalizePath(self.rulesFolder) === fullPath) {
         // Try to create the root folder
         try {
+        // Just reed flat file not go through each folder 
           await mkdirp(fullPath);
           return { rules: [] };
         }

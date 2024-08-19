@@ -15,11 +15,14 @@ export interface TestRuleOptions {
       * @default 1
       * @minimum 1
       */
-    days: number;
+    days?: number;
     /**
       * Whether to send real alerts
       * @default false
       */
+    start?: string;
+    end?: string;
+
     alert?: boolean;
     /**
       * When 'json' return results in structured JSON
