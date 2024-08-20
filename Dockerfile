@@ -42,7 +42,7 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-FROM node:18.20-alpine3.19
+FROM node:22.4-alpine3.20
 
 LABEL description="ElastAlert2 Server"
 LABEL maintainer="Karql <karql.pl@gmail.com>"
