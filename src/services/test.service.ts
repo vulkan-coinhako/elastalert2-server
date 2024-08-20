@@ -105,11 +105,13 @@ export default class TestService {
 
   private getProcessOptions(opt: TestRuleOptions, tempFilePath: string): string[] {
     let processOptions: string[] = [];
-    
+    console.log(opt.days)
     if (opt.days){
         processOptions.push('-m', 'elastalert.test_rule', '--config', 'config-test.yaml', tempFilePath, '--days', opt.days.toString());
+        console.log(opt.days)
     }else{
       if(opt.start && opt.end){
+        console.log(opt.start)
         processOptions.push('-m', 'elastalert.test_rule', '--config', 'config-test.yaml', tempFilePath, '--start', opt.start.toString(), '--end', opt.end.toString() );
       }
     }
